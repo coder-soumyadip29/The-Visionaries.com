@@ -1,0 +1,11 @@
+Add your own legally-owned mp3 file in this folder,
+named exactly:  sabashiyaan.mp3
+
+So the final path should look like:
+outputs/
+ ├─ index.html
+ └─ audio/
+     └─ sabashiyaan.mp3   <-- your file goes here
+
+Once it's here, opening index.html will show a play/pause
+button bottom-right that plays this file on loop.

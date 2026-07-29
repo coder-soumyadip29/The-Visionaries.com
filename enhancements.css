@@ -1,0 +1,198 @@
+/* ============ ENHANCEMENTS CSS ============ */
+/* Additional styles for feature enhancements */
+
+/* -------- 1. Scroll Progress Bar -------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold-bright), var(--gold), var(--violet));
+  z-index: 9999;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+}
+
+/* -------- 2. Back-to-Top Button -------- */
+.back-to-top {
+  position: fixed;
+  bottom: 26px;
+  left: 26px;
+  z-index: 300;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(160deg, var(--bg-elevated), var(--bg-soft));
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.4);
+  color: var(--gold);
+  font-size: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 22px rgba(212, 175, 55, 0.45);
+  border-color: var(--gold);
+}
+
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* -------- 3. Particle Canvas -------- */
+#particleCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.hero-visual {
+  position: relative;
+}
+
+/* -------- 4. Active Nav Indicator -------- */
+.nav-links a.active {
+  color: var(--gold) !important;
+}
+
+.nav-links a.active::after {
+  width: 100% !important;
+  background: var(--gold) !important;
+}
+
+/* -------- 5. NavBar Shrink on Scroll -------- */
+header.scrolled {
+  background: rgba(13, 6, 23, 0.92) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+header.scrolled nav {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+header.scrolled .logo {
+  font-size: 17px;
+}
+
+header.scrolled .logo-mark {
+  width: 26px;
+  height: 26px;
+  font-size: 14px;
+}
+
+/* Smooth transitions for shrink */
+header {
+  transition: background 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+header nav {
+  transition: padding 0.3s ease !important;
+}
+
+header .logo {
+  transition: font-size 0.3s ease !important;
+}
+
+header .logo-mark {
+  transition: width 0.3s ease, height 0.3s ease !important;
+}
+
+/* -------- 6. Typing Cursor -------- */
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: var(--gold);
+  margin-left: 3px;
+  vertical-align: text-bottom;
+  animation: blink-cursor 0.8s steps(2) infinite;
+}
+
+@keyframes blink-cursor {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* -------- 7. 3D Tilt on Feature Cards -------- */
+.feature-grid {
+  perspective: 1200px;
+}
+
+.feature {
+  transform-style: preserve-3d;
+  transition: background 0.3s ease, transform 0.4s ease, box-shadow 0.4s ease !important;
+}
+
+.feature:hover {
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.1), 0 0 20px rgba(122, 79, 194, 0.08);
+}
+
+.feature .icon,
+.feature h4,
+.feature p,
+.feature .mod-num {
+  transition: transform 0.4s ease;
+}
+
+.feature:hover .icon,
+.feature:hover h4,
+.feature:hover p,
+.feature:hover .mod-num {
+  transform: translateZ(20px);
+}
+
+/* -------- 8. Counter Animation Prep -------- */
+.stat .num,
+.win-stat .num {
+  transition: opacity 0.3s ease;
+}
+
+/* -------- Additional Polish -------- */
+/* Subtle glow pulse on sonar HUDs */
+.hud {
+  animation: hud-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes hud-glow {
+  0% { box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35); }
+  100% { box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 0 15px rgba(212, 175, 55, 0.08); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  .back-to-top {
+    bottom: 20px;
+    left: 20px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .scroll-progress {
+    height: 2px;
+  }
+}
